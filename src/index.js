@@ -2,16 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+//TO CHECK;
+//First one
+//https://jsonplaceholder.typicode.com/
+//E-commerce
+//https://dummyjson.com/docs/products
+// fetch('https://dummyjson.com/products')
+// .then(res => res.json())
+// .then(console.log);
+//UP NEXT:
+//Add Router(user,posts)
+//Components for post (useEffect)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
+  root.render(
+    <>
     <App />
-  </React.StrictMode>
-);
+    </>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+);
