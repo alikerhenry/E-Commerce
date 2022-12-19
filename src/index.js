@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import "bootstrap/dist/css/bootstrap.css"
 import 'bootstrap/dist/js/bootstrap.bundle.js'
-import App from './App';
+import {BrowserRouter as Router} from "react-router-dom"
+import App from './App';  
 
 //TO CHECK;
 //First one
@@ -20,7 +21,9 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <>
-    <App />
+    <Router>
+      <App />
+    </Router>
     </>
 
 );
