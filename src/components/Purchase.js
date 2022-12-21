@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
-import {Link} from "react-router-dom"
+import StarRating from "./StarRating";
 
-function Products(){
+function Purchase(){
     const [products,setProducts] = useState([])
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState(null)
@@ -20,22 +20,24 @@ function Products(){
         return <pre>{JSON.stringify(error,null,2)}</pre>
 
     return (
-            <div className="container-md ">
-            <div className="row justify-content-evenly gy-3">
+        <div className="container-md ">
+            <h1 className="display-1">WELCOME!</h1>
+            <div className="row justify-content-evenly gy-2">
                     {products.map((item)=>(
                         <div className="card col-8 shadow" 
-                            style={{"width":"10rem"}} 
+                            style={{"width":"14rem","height":"auto"}} 
                             key={item.id}
                         >
                             <img src={item.thumbnail}
-                            alt={item.title}
-                            className="card-img-bottom rounded"
-                            />
-                                <h5 className="card-text">{item.title}</h5>
-                                    <span className="card-text">${item.price}</span>
-                                <Link to="/purchase">
-                                    <span className="btn btn-success">Purchase</span>
-                                </Link>
+                            alt={item.images[0]}
+                            className="card-image-top rounded "
+                             />
+                            <div className="card-body">
+                                <h5 className="card-title">{item.title}</h5>
+                                <span className="card-text">${item.price}</span>
+                                <div className="card-text">{item.description}</div>
+                                <StarRating totalStars={5}/>
+                            </div>
                         </div>
                     ))}
             </div>
@@ -44,5 +46,4 @@ function Products(){
     )
 }
 
-  
-  export default Products;
+export default Purchase;

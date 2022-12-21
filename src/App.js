@@ -1,8 +1,7 @@
 import React from "react";
 import './App.css';
-import { Home,About,Whoops404} from "./components/Pages";
+import { Home,PurchaseDetail,Whoops404} from "./components/Pages";
 import {Routes,Route} from "react-router-dom"
-//https://api.github.com/users/alikerhenry
 
 function App(){
   return(
@@ -16,7 +15,7 @@ function App(){
       <Routes>
         <Route path="/" element={<Home/>}>
         </Route>
-        <Route path="/about" element={<About/>}/>
+        <Route path="/purchase" element={<PurchaseDetail/>}/>
         <Route path="*" element={<Whoops404/>}/>
       </Routes>
     </main>
