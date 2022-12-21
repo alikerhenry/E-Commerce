@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import StarRating from "./StarRating";
+import { FaPlus } from "react-icons/fa";
 
 function Purchase(){
     const [products,setProducts] = useState([])
@@ -36,6 +37,10 @@ function Purchase(){
                                 <h5 className="card-title">{item.title}</h5>
                                 <span className="card-text">${item.price}</span>
                                 <div className="card-text">{item.description}</div>
+                                <span className="btn btn-success d-block mt-2">
+                                    <FaPlus className="mx-2"/>
+                                    Add to cart
+                                </span>
                                 <StarRating totalStars={5}/>
                             </div>
                         </div>
