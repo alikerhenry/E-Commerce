@@ -6,7 +6,7 @@ function Purchase(){
     const [products,setProducts] = useState([])
     const [loading,setLoading] = useState(false);
     const [error,setError] = useState(null)
-    
+
     useEffect(()=> {
         setLoading(true);
       fetch(`https://dummyjson.com/products`)
@@ -25,8 +25,8 @@ function Purchase(){
             <h1 className="display-1">WELCOME!</h1>
             <div className="row justify-content-evenly gy-2">
                     {products.map((item)=>(
-                        <div className="card col-8 shadow" 
-                            style={{"width":"14rem","height":"auto"}} 
+                        <div className="card col-8 shadow"
+                            style={{"width":"14rem","height":"auto"}}
                             key={item.id}
                         >
                             <img src={item.thumbnail}
@@ -39,7 +39,7 @@ function Purchase(){
                                 <div className="card-text">{item.description}</div>
                                 <span className="btn btn-success d-block mt-2">
                                     <FaPlus className="mx-2"/>
-                                    Add to cart
+                                    Details
                                 </span>
                                 <StarRating totalStars={5}/>
                             </div>
@@ -47,7 +47,7 @@ function Purchase(){
                     ))}
             </div>
         </div>
-       
+
     )
 }
 
