@@ -62,45 +62,44 @@ import Category from "./pages/Category";
                     aria-expanded='false'>
                     Categories
                   </a>
-                  {/* Add dynamic segments */}
                   <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
                     <li>
-                    <Link to='categories/:smartphones'>
+                    <Link to='/products/category/:smartphones'>
                       <a className='dropdown-item' href='#'>
                         Smart Phones
                       </a>
                     </Link>
                     </li>
                     <li>
-                    <Link to='categories/:laptops'>
+                    <Link to='/products/category/:laptops'>
                       <a className='dropdown-item' href='#'>
                         Laptops
                       </a>
                     </Link>
                     </li>
                     <li>
-                    <Link to='categories/:frangrances'>
+                    <Link to='/products/category/:frangrances'>
                       <a className='dropdown-item' href='#'>
                         Fragrances
                       </a>
                     </Link>
                     </li>
                     <li>
-                    <Link to='categories/:skin-care'>
+                    <Link to='/products/category/:skin-care'>
                       <a className='dropdown-item' href='#'>
                         Skin care
                       </a>
                     </Link>
                     </li>
                     <li>
-                    <Link to='categories/:groceries'>
+                    <Link to='/products/category/:groceries'>
                       <a className='dropdown-item' href='#'>
                         Groceries
                       </a>
                     </Link>
                     </li>
                     <li>
-                    <Link to='categories/:home-decoration'>
+                    <Link to='/products/category/:home-decoration'>
                       <a className='dropdown-item' href='#'>
                         Home-Decoration
                       </a>
@@ -118,7 +117,7 @@ import Category from "./pages/Category";
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/products/:productId' element={<Product />} />
-            <Route path='/categories/:categoryId' element={<Category/>} />
+            <Route path='/products/category/:categoryName' element={<Category/>} />
             <Route path='/about' element={<About/>} />
             <Route path='/contactUs' element={<ContactUs/>} />
             <Route path='*' element={<Whoops404 />} />

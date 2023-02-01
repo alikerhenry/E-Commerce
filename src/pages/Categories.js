@@ -5,12 +5,12 @@ import Category from './Category';
 function Categories(){
   return(
     <Routes>
-      <Route path='categories/:smartphones' element={<Category/>}/>
-      <Route path='categories/:laptops' element={<Category/>}/>
-      <Route path='categories/:fragrances' element={<Category/>}/>
-      <Route path='categories/:skin-care' element={<Category/>}/>
-      <Route path='categories/:groceries' element={<Category/>}/>
-      <Route path='categories/:home-decoration' element={<Category/>}/>
+      <Route path='category/:smartphones' element={<Category/>}/>
+      <Route path='category/:laptops' element={<Category/>}/>
+      <Route path='category/:fragrances' element={<Category/>}/>
+      <Route path='category/:skin-care' element={<Category/>}/>
+      <Route path='category/:groceries' element={<Category/>}/>
+      <Route path='category/:home-decoration' element={<Category/>}/>
     </Routes>
   )
 }

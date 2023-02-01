@@ -5,7 +5,7 @@ import Whoops404 from './Error';
 
 const FetchCategory = async () => {
   const params = useParams();
-  const res = await fetch(`https://dummyjson.com/categories/${params.categoryId}`)
+  const res = await fetch(`https://dummyjson.com/category/${params.categoryName}`)
     return res.json()   
 }
   
