@@ -1,11 +1,16 @@
 import React from "react";
 import './App.css';
-import {Routes,Route} from "react-router-dom"
+import {Routes,Route,Link} from "react-router-dom"
 import Home from "./pages/Home";
 import Product from "./pages/Product";
-import { Whoops404 } from "./pages/Error";
-
-function App(){
+import About from "./pages/About";
+import ContactUs from "./pages/ContactUs";
+import Whoops404 from "./pages/Error";
+import { QueryClient, QueryClientProvider} from 'react-query'
+import Category from "./pages/Category";
+  
+  function App(){
+  const queryClient = new QueryClient()
   return (
     <>
       <header>
@@ -27,19 +32,25 @@ function App(){
             <div className='collapse navbar-collapse' id='navbarSupportedContent'>
               <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
                 <li className='nav-item'>
-                  <a className='nav-link active' aria-current='page' href='#'>
-                    Home
-                  </a>
+                  <Link to='/'>
+                    <a className='nav-link active' aria-current='page' href='#'>
+                      Home
+                    </a>
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link' href='#'>
-                    About
-                  </a>
+                  <Link to='about'>
+                    <a className='nav-link' href='#'>
+                       About
+                    </a>
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link' href='#'>
-                    Contact Us
-                  </a>
+                  <Link to='contactUs'>
+                    <a className='nav-link' href='#'>
+                      Contact Us
+                    </a>
+                  </Link>
                 </li>
                 <li className='nav-item dropdown'>
                   <a
@@ -51,36 +62,49 @@ function App(){
                     aria-expanded='false'>
                     Categories
                   </a>
+                  {/* Add dynamic segments */}
                   <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
                     <li>
+                    <Link to='categories/:smartphones'>
                       <a className='dropdown-item' href='#'>
                         Smart Phones
                       </a>
+                    </Link>
                     </li>
                     <li>
+                    <Link to='categories/:laptops'>
                       <a className='dropdown-item' href='#'>
                         Laptops
                       </a>
+                    </Link>
                     </li>
                     <li>
+                    <Link to='categories/:frangrances'>
                       <a className='dropdown-item' href='#'>
                         Fragrances
                       </a>
+                    </Link>
                     </li>
                     <li>
+                    <Link to='categories/:skin-care'>
                       <a className='dropdown-item' href='#'>
                         Skin care
                       </a>
+                    </Link>
                     </li>
                     <li>
+                    <Link to='categories/:groceries'>
                       <a className='dropdown-item' href='#'>
                         Groceries
                       </a>
+                    </Link>
                     </li>
                     <li>
+                    <Link to='categories/:home-decoration'>
                       <a className='dropdown-item' href='#'>
                         Home-Decoration
                       </a>
+                    </Link>
                     </li>
                   </ul>
                 </li>
@@ -90,11 +114,16 @@ function App(){
         </nav>
       </header>
       <main className='container-xl '>
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/products/:productId' element={<Product />} />
-          <Route path='*' element={<Whoops404 />} />
-        </Routes>
+        <QueryClientProvider client={queryClient}>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/products/:productId' element={<Product />} />
+            <Route path='/categories/:categoryId' element={<Category/>} />
+            <Route path='/about' element={<About/>} />
+            <Route path='/contactUs' element={<ContactUs/>} />
+            <Route path='*' element={<Whoops404 />} />
+          </Routes>
+        </QueryClientProvider>
       </main>
       <footer></footer>
     </>

@@ -3,14 +3,14 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import Whoops404 from './Error';
 
-const FetchProducts = async () => {
+const FetchCategory = async () => {
   const params = useParams();
-  const res = await fetch(`https://dummyjson.com/products/${params.productId}`)
+  const res = await fetch(`https://dummyjson.com/categories/${params.categoryId}`)
     return res.json()   
 }
   
-const Product = () => {
-  const {product, status} = useQuery('products', FetchProducts);
+const Category = () => {
+  const {product, status} = useQuery('product', FetchCategory);
   console.log(product);
   return (
     <div>
@@ -49,4 +49,4 @@ const Product = () => {
   );
 }
 
-export default Product;
+export default Category;
