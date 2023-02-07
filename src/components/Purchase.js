@@ -6,12 +6,11 @@ import { Whoops404 } from "../pages/Error";
 
 const fetchProducts = async () => {
     const res = await fetch(`https://dummyjson.com/products`)
-      return res.json()   
+      return res.json()
   }
 
 const Purchase = () => {
     const {products, status} = useQuery('products', fetchProducts);
-    console.log(products);
 
     return (
         <div>

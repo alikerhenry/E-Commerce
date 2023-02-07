@@ -8,9 +8,10 @@ import ContactUs from "./pages/ContactUs";
 import Whoops404 from "./pages/Error";
 import { QueryClient, QueryClientProvider} from 'react-query'
 import Category from "./pages/Category";
-  
-  function App(){
-  const queryClient = new QueryClient()
+
+const queryClient = new QueryClient()
+
+function App() {
   return (
     <>
       <header>

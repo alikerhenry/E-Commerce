@@ -2,16 +2,11 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import Whoops404 from './Error';
+import { fetchProducts } from '../api/api';
 
-const FetchProducts = async () => {
-  const params = useParams();
-  const res = await fetch(`https://dummyjson.com/products/${params.productId}`)
-    return res.json()   
-}
-  
 const Product = () => {
-  const {product, status} = useQuery('products', FetchProducts);
-  console.log(product);
+  const params = useParams();
+  const {product, status} = useQuery('products', fetchProducts(params.productId));
   return (
     <div>
       { status === "success" && (
@@ -39,7 +34,7 @@ const Product = () => {
       {status === 'loading' && (
         <div>Loading...</div>
       )}
-      
+
       {status === 'error' && (
         <div>
           <Whoops404/>

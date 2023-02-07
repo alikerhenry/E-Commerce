@@ -1,18 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query'
 import  Whoops404  from './Error';
+import { Link } from 'react-router-dom';
 
 const fetchProducts = async () => {
-  const res = await fetch(`https://dummyjson.com/products`)
-    return res.json()   
-}
-  
-const Home = () => {
-  const {products, status} = useQuery('products', fetchProducts);
-  console.log(products);
+  const response = await (await fetch(`https://dummyjson.com/products`)).json();
+  console.log('response1', response);
+  return response;
+};
 
-  return(
+const Home = () => {
+  const { data, status } = useQuery(
+    'products',
+    fetchProducts
+  );
+  const products = data?.products;
+
+  return (
     <div>
       { status === 'success' && (
           <div className='container-md '>
@@ -44,11 +48,12 @@ const Home = () => {
 
       { status === 'error' && (
         <div>
-          <Whoops404/>
+          <Whoops404 />
         </div>
       )}
-          </div>
-        )
+
+    </div>
+  )
 }
 
 export default Home;
