@@ -2,17 +2,12 @@ import React from 'react';
 import { useQuery } from 'react-query'
 import  Whoops404  from './Error';
 import { Link } from 'react-router-dom';
-
-const fetchProducts = async () => {
-  const response = await (await fetch(`https://dummyjson.com/products`)).json();
-  console.log('response1', response);
-  return response;
-};
+import { fetchHome } from '../api/api';
 
 const Home = () => {
   const { data, status } = useQuery(
     'products',
-    fetchProducts
+    fetchHome
   );
   const products = data?.products;
 
