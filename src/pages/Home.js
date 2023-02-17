@@ -2,13 +2,10 @@ import React from 'react';
 import { useQuery } from 'react-query'
 import  Whoops404  from './Error';
 import { Link } from 'react-router-dom';
-import { fetchHome } from '../api/api';
+import { fetchProducts } from '../api/api';
 
 const Home = () => {
-  const { data, status } = useQuery(
-    'products',
-    fetchHome
-  );
+  const { data, status } = useQuery('products', fetchProducts);
   const products = data?.products;
 
   return (

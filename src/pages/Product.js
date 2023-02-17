@@ -2,11 +2,14 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import Whoops404 from './Error';
-import { fetchProducts } from '../api/api';
+import { fetchProductDetails } from '../api/api';
 
 const Product = () => {
   const params = useParams();
-  const {product, status} = useQuery('products', fetchProducts(params.productId));
+  const { product, status } = useQuery(
+    'products',
+    fetchProductDetails(params.productId)
+  );
   return (
     <div>
       { status === "success" && (

@@ -1,16 +1,14 @@
-export async function fetchCategory (categoryName) {
-  const res = await fetch(`https://dummyjson.com/category/${categoryName}`)
-  return res.json()
-}
-
-export async function fetchProducts (productId) {
-  const res = await fetch(`https://dummyjson.com/products/${productId}`)
-  return res.json()
-}
-
-export async function fetchHome (){
+export async function fetchProducts () {
   const response = await (await fetch(`https://dummyjson.com/products`)).json();
-  console.log('response1', response);
+  return response;
+};
+
+export async function fetchCategory (categoryName) {
+  const response = await (await fetch(`https://dummyjson.com/products/category/${categoryName}`)).json();
   return response;
 }
 
+export async function fetchProductDetails (productId) {
+  const response = await (await fetch(`https://dummyjson.com/products/${productId}`)).json();
+  return response;
+}

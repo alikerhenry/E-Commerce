@@ -30,27 +30,23 @@ function App() {
               aria-label='Toggle navigation'>
               <span className='navbar-toggler-icon'></span>
             </button>
-            <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+            <div
+              className='collapse navbar-collapse'
+              id='navbarSupportedContent'>
               <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
                 <li className='nav-item'>
                   <Link to='/'>
-                    <a className='nav-link active' aria-current='page' href='#'>
-                      Home
-                    </a>
+                    Home
                   </Link>
                 </li>
                 <li className='nav-item'>
                   <Link to='about'>
-                    <a className='nav-link' href='#'>
-                       About
-                    </a>
+                    About
                   </Link>
                 </li>
                 <li className='nav-item'>
                   <Link to='contactUs'>
-                    <a className='nav-link' href='#'>
-                      Contact Us
-                    </a>
+                    Contact Us
                   </Link>
                 </li>
                 <li className='nav-item dropdown'>
@@ -63,48 +59,38 @@ function App() {
                     aria-expanded='false'>
                     Categories
                   </a>
-                  <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
+                  <ul
+                    className='dropdown-menu'
+                    aria-labelledby='navbarDropdown'>
                     <li>
-                    <Link to='/products/category/:smartphones'>
-                      <a className='dropdown-item' href='#'>
+                      <Link to='/category/smartphones'>
                         Smart Phones
-                      </a>
-                    </Link>
+                      </Link>
                     </li>
                     <li>
-                    <Link to='/products/category/:laptops'>
-                      <a className='dropdown-item' href='#'>
+                      <Link to='/category/laptops'>
                         Laptops
-                      </a>
-                    </Link>
+                      </Link>
                     </li>
                     <li>
-                    <Link to='/products/category/:frangrances'>
-                      <a className='dropdown-item' href='#'>
+                      <Link to='/category/frangrances'>
                         Fragrances
-                      </a>
-                    </Link>
+                      </Link>
                     </li>
                     <li>
-                    <Link to='/products/category/:skin-care'>
-                      <a className='dropdown-item' href='#'>
+                      <Link to='/category/skin-care'>
                         Skin care
-                      </a>
-                    </Link>
+                      </Link>
                     </li>
                     <li>
-                    <Link to='/products/category/:groceries'>
-                      <a className='dropdown-item' href='#'>
+                      <Link to='/category/groceries'>
                         Groceries
-                      </a>
-                    </Link>
+                      </Link>
                     </li>
                     <li>
-                    <Link to='/products/category/:home-decoration'>
-                      <a className='dropdown-item' href='#'>
+                      <Link to='/category/home-decoration'>
                         Home-Decoration
-                      </a>
-                    </Link>
+                      </Link>
                     </li>
                   </ul>
                 </li>
@@ -118,9 +104,11 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/products/:productId' element={<Product />} />
-            <Route path='/products/category/:categoryName' element={<Category/>} />
-            <Route path='/about' element={<About/>} />
-            <Route path='/contactUs' element={<ContactUs/>} />
+            <Route path='/category' element={<Category />}>
+              <Route path=':categoryName' element={<Category />} />
+            </Route>
+            <Route path='/about' element={<About />} />
+            <Route path='/contactUs' element={<ContactUs />} />
             <Route path='*' element={<Whoops404 />} />
           </Routes>
         </QueryClientProvider>

@@ -6,39 +6,45 @@ import { fetchCategory } from '../api/api';
 
 const Category = () => {
   const params = useParams();
+  const { data, status } = useQuery(
+    'products',
+    () => fetchCategory(params.categoryName)
+  );
+  console.log('category', data);
+  const products = data?.products;
+  console.log('cat2', products);
 
-  const { product, status } = useQuery('product', fetchCategory(params.categoryName));
   return (
-    <div>
-      { status === "success" && (
+    <div className='container-md'>
+      {status === 'success' && (
         <div className='container-md '>
           <div className='row justify-content-evenly gy-3'>
-            <div
-              className='card col-8 shadow'
-              style={{ width: '10rem' }}
-              key={product.id}>
-              <img
-                src={product.thumbnail}
-                alt={product.title}
-                className='card-img-bottom rounded'
-              />
-              <h5 className='card-text'>{product.title}</h5>
-              <span className='card-text'>${product.price}</span>
-              <Link to='/products/:productId'>
-                <span className='btn btn-success'>View</span>
-              </Link>
-            </div>
+            {products.map((item) => (
+              <div
+                className='card col-8 shadow'
+                style={{ width: '10rem' }}
+                key={item.id}>
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  className='card-img-bottom rounded'
+                />
+                <h5 className='card-text'>{item.title}</h5>
+                <span className='card-text'>${item.price}</span>
+                <Link to='/products/:productId'>
+                  <span className='btn btn-success'>View</span>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       )}
 
-      {status === 'loading' && (
-        <div>Loading...</div>
-      )}
+      {status === 'loading' && <div>Loading...</div>}
 
       {status === 'error' && (
         <div>
-          <Whoops404/>
+          <Whoops404 />
         </div>
       )}
     </div>
