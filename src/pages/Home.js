@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query'
+import '../css/App.css'
 import  Whoops404  from './Error';
 import { Link } from 'react-router-dom';
 import { fetchProducts } from '../api/api';
@@ -12,30 +13,36 @@ const Home = () => {
     <div>
       { status === 'success' && (
           <div className='container-md '>
-            <div className='row justify-content-evenly gy-3'>
+            <div className='row flex-column g-5'>
               {products.map((item) => (
-                <div
-                  className='card col-8 shadow'
-                  style={{ width: '10rem' }}
-                  key={item.id}>
-                  <img
-                    src={item.thumbnail}
-                    alt={item.title}
-                    className='card-img-bottom rounded'
-                  />
-                  <h5 className='card-text'>{item.title}</h5>
-                  <span className='card-text'>${item.price}</span>
-                  <Link to='/products/:productId'>
-                    <span className='btn btn-success'>View</span>
-                  </Link>
+              <div class="card w-100 mb-3" /*style={{'max-width': '540px'}}*/>
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img 
+                      src={item.images[0]} 
+                      alt={item.title}
+                      className="img-fluid rounded-start" />
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body">
+                      <h5 className="card-title fs-1">{item.title}</h5>
+                      <span className='card-text fs-2'>${item.price}</span>
+                      <Link to='/products/:productId'>
+                        <span className='btn align-self-baseline view-btn'>View</span>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
+              </div>
               ))}
             </div>
           </div>
       )}
 
       { status === 'loading' && (
-        <div>Loading...</div>
+        <div className="spinner-border text-dark" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
       )}
 
       { status === 'error' && (

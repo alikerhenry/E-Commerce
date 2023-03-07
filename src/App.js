@@ -1,5 +1,5 @@
 import React from "react";
-import './App.css';
+import './css/App.css';
 import {Routes,Route,Link} from "react-router-dom"
 import Home from "./pages/Home";
 import Product from "./pages/Product";
@@ -15,9 +15,9 @@ function App() {
   return (
     <>
       <header>
-        <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
+        <nav className='navbar navbar-expand-lg navbar-dark nav-container'>
           <div className='container-fluid'>
-            <a className='navbar-brand' href='/'>
+            <a className='lemongreen navbar-brand' href='/'>
               LEMONGREEN
             </a>
             <button
@@ -31,26 +31,33 @@ function App() {
               <span className='navbar-toggler-icon'></span>
             </button>
             <div
-              className='collapse navbar-collapse'
+              className='collapse navbar-collapse product-navbar'
               id='navbarSupportedContent'>
-              <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-                <li className='nav-item'>
+              <ul className='navbar-nav mb-2 mb-lg-0 navbar-links'>
+                <li className='nav-item '>
                   <Link to='/'>
-                    Home
+                    <button className="nav-link active" aria-current="page">
+                      Home
+                    </button>
                   </Link>
                 </li>
                 <li className='nav-item'>
                   <Link to='about'>
-                    About
+                    <button className="nav-link">
+                      About
+                    </button>
                   </Link>
                 </li>
                 <li className='nav-item'>
                   <Link to='contactUs'>
-                    Contact Us
+                    <button className="nav-link">
+                      ContactUs
+                    </button>
                   </Link>
                 </li>
                 <li className='nav-item dropdown'>
                   <a
+                    style={{"font-size":"1.5rem"}}
                     className='nav-link dropdown-toggle'
                     href='#'
                     id='navbarDropdown'
@@ -60,7 +67,7 @@ function App() {
                     Categories
                   </a>
                   <ul
-                    className='dropdown-menu'
+                    className='dropdown-container dropdown-menu'
                     aria-labelledby='navbarDropdown'>
                     <li>
                       <Link to='/category/smartphones'>
@@ -99,7 +106,7 @@ function App() {
           </div>
         </nav>
       </header>
-      <main className='container-xl '>
+      <main className='container-xl products-container'>
         <QueryClientProvider client={queryClient}>
           <Routes>
             <Route path='/' element={<Home />} />
