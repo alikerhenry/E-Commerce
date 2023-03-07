@@ -1,0 +1,100 @@
+@import './variables';
+
+@font-face {
+    font-family: myFont;
+    src: url('./Lobster_1.3.otf');
+  }
+  
+  *{
+    box-sizing: border-box;
+  }
+  
+  html{
+    min-height: 100%;
+  }
+  
+  body{
+    background-color: #0000
+  }
+  
+  /*APP*/
+  .lemongreen{
+    font-family: myFont;
+    font-size: 3rem;
+    color: map-get($colors,main);
+  }
+  
+  .nav-container{
+    width: 100%;
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    /* backdrop-filter: saturate(170%) blur(50px); */
+    background: map-get($colors,gradient);
+  }
+  
+  .product-navbar{
+    justify-content: end;
+    li{
+        margin-right: 2rem;
+        padding-bottom: 5px;
+        color: map-get($map: $colors, $key:main )
+      }
+  }
+  
+  .navbar-links{
+      a{
+        text-decoration: none;
+      }
+      button{
+        outline: none;
+        border: none;
+        background: none;
+        font-size: 1.5rem;
+      }
+} 
+  .dropdown-container{
+    padding: 0;
+    right: 5rem;
+    width: 11.6rem;
+    li{
+        width: 11.5rem;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: 500;
+        padding: 0.5rem;
+        margin: 0;
+        border-bottom: 1px solid  map-get($colors,primary);
+      }
+    a{
+        color: map-get($colors,primary);
+        &:hover{
+            color: map-get($colors,main)
+        }
+    }
+    li{
+        &:hover,&:active{
+            cursor: pointer;
+            color: map-get($colors,main);
+            background: rgb(4, 189, 4);
+        }
+      }
+  }
+
+  /*HOME*/
+  .products-container{
+    position: relative;
+    top: 8rem;
+    z-index: 2;
+  }
+  
+  .view-btn{
+    width: 100%;
+    font-size: 1.5rem;
+    background: map-get($colors,gradient);
+    color: map-get($colors,main);
+    &:hover{
+        color: map-get($colors,main);
+    }
+  }

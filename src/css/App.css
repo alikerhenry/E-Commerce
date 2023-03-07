@@ -1,101 +1,96 @@
 @font-face {
   font-family: myFont;
-  src: url('./Lobster_1.3.otf');
+  src: url("./Lobster_1.3.otf");
 }
-
-*{
+* {
   box-sizing: border-box;
 }
 
-html{
+html {
   min-height: 100%;
 }
 
-body{
-  background-color: #0000
+body {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /*APP*/
-.lemongreen{
+.lemongreen {
   font-family: myFont;
   font-size: 3rem;
-  color:#f7f7f7;
+  color: #f7f7f7;
 }
 
-.nav-container{
+.nav-container {
   width: 100%;
   height: 5rem;
   position: fixed;
   top: 0;
   z-index: 3;
   /* backdrop-filter: saturate(170%) blur(50px); */
-  background: linear-gradient(rgb(6, 192, 6),rgb(2, 146, 2));
+  background: linear-gradient(rgb(6, 192, 6), rgb(2, 146, 2));
 }
 
-.product-navbar{
+.product-navbar {
   justify-content: end;
 }
-
-.product-navbar li{
+.product-navbar li {
   margin-right: 2rem;
-  padding-bottom: 5px
+  padding-bottom: 5px;
+  color: #f7f7f7;
 }
 
-.navbar-links a{
+.navbar-links a {
   text-decoration: none;
 }
-
-.navbar-links button{
+.navbar-links button {
   outline: none;
   border: none;
   background: none;
   font-size: 1.5rem;
 }
 
-.dropdown-container{
+.dropdown-container {
   padding: 0;
   right: 5rem;
   width: 11.6rem;
 }
-
-.dropdown-container li{
+.dropdown-container li {
   width: 11.5rem;
   font-size: 1.2rem;
   text-align: center;
   font-weight: 500;
   padding: 0.5rem;
   margin: 0;
-  border-bottom: 1px solid  #181818;
+  border-bottom: 1px solid #181818;
 }
-
-.dropdown-container a{
+.dropdown-container a {
   color: #181818;
 }
-
-.dropdown-container a:hover{
-  color: #f7f7f7
+.dropdown-container a:hover {
+  color: #f7f7f7;
 }
-
-.dropdown-container li:hover, .dropdown-container li:active{
+.dropdown-container li:hover, .dropdown-container li:active {
+  cursor: pointer;
   color: #f7f7f7;
   background: rgb(4, 189, 4);
-  cursor: pointer;
 }
 
 /*HOME*/
-.products-container{
+.products-container {
   position: relative;
   top: 8rem;
   z-index: 2;
 }
 
-.view-btn{
+.view-btn {
   width: 100%;
   font-size: 1.5rem;
-  background: linear-gradient(rgb(6, 192, 6),rgb(2, 146, 2));
+  background: linear-gradient(rgb(6, 192, 6), rgb(2, 146, 2));
+  color: #f7f7f7;
+}
+.view-btn:hover {
   color: #f7f7f7;
 }
 
-.view-btn:hover{
-  color: #f7f7f7;
-}
+/*# sourceMappingURL=App.css.map */
